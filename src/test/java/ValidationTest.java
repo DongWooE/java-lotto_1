@@ -1,7 +1,5 @@
 import domain.Validation;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -31,7 +29,7 @@ public class ValidationTest {
     void check_first_splitter_duplication() {
         final String[] input = new String[] {"+", "1"};
         assertThatThrownBy(() -> {
-            Validation.checkSpliterPosition(input);
+            Validation.checkSplitterPosition(input);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -39,7 +37,15 @@ public class ValidationTest {
     void check_last_splitter_duplication() {
         final String[] input = new String[] {"1", "+"};
         assertThatThrownBy(() -> {
-            Validation.checkSpliterPosition(input);
+            Validation.checkSplitterPosition(input);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void check_valid_splitter() {
+        final String[] input = new String[]{"1", "+", "2", "?", "5"};
+        assertThatThrownBy(() -> {
+            Validation.checkValidSplitter(input);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 }
