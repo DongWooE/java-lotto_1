@@ -26,4 +26,20 @@ public class ValidationTest {
             Validation.process(input);
         }).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void check_first_splitter_duplication() {
+        final String[] input = new String[] {"+", "1"};
+        assertThatThrownBy(() -> {
+            Validation.checkSpliterPosition(input);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void check_last_splitter_duplication() {
+        final String[] input = new String[] {"1", "+"};
+        assertThatThrownBy(() -> {
+            Validation.checkSpliterPosition(input);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
 }

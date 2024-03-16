@@ -26,4 +26,14 @@ public class Validation {
             beforeState = false;
         }
     }
+
+    public static void checkSpliterPosition(String[] input) {
+        String firstData = input[0];
+        String lastData = input[input.length - 1];
+
+        if (CheckUtil.isNumber(firstData) || CheckUtil.isNumber(lastData)) {
+            throw new IllegalArgumentException();
+        }
+
+    }
 }
