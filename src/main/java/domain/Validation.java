@@ -2,7 +2,6 @@ package domain;
 
 import util.CheckUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -54,10 +53,8 @@ public class Validation {
     }
 
     public static void checkValidSplitter(String str) {
-        if (!CheckUtil.isNumber(str)) {
-            if (!Splitters.contains(str)) {
+        if (!Splitters.contains(str)) {
                 throw new IllegalArgumentException();
             }
-        }
     }
 }
