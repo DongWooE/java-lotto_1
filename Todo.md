@@ -1,7 +1,6 @@
 # Step1
 
 ## Todo
-- 입력 문자열과 사칙 연산 사이에는 반드시 빈 공간이 존재("1 + 2")
 - 입력 문자열과 사칙 연산 사이에는 반드시 빈 공간이 없다면 IllegalArguemntsException("1 +2" => IllegalArgumentException)
 - 숫자나 연산자가 연속으로 들어오면 IllegalArgumentException을 던진다("1 2" => IllegalArgumentException)
 - 연산자가 양끝에 있으면 IllegalArgumentException을 던진다("1 +" => IllegalArgumentException, "+ 1" => IllegalArgumentException)
@@ -10,3 +9,4 @@
 - 사칙연산의 계산 우선순위가 아닌 입력 값에 따라 계산 순서가 결정("4 + 2 / 2" => 3)
 
 ## Done
+- 더하기, 뺼셈, 곱하기, 나누기 연산("1 + 2" => 3, "1 - 2" => 3, "1 * 2" => 3,"1 / 2" => 3)
