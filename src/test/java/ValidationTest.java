@@ -13,15 +13,15 @@ public class ValidationTest {
     void check_number_duplication(){
         final String[] input = new String[] {"1","2"};
         assertThatThrownBy(() -> {
-            Validation.process(input);
+            Validation.validate(input);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void check_splitter_duplication(){
-        final String[] input = new String[] {"+","-"};
+        final String[] input = new String[] {"1","+","-"};
         assertThatThrownBy(() -> {
-            Validation.process(input);
+            Validation.validate(input);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -29,7 +29,7 @@ public class ValidationTest {
     void check_first_splitter_duplication() {
         final String[] input = new String[] {"+", "1"};
         assertThatThrownBy(() -> {
-            Validation.checkSplitterPosition(input);
+            Validation.validate(input);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -37,7 +37,7 @@ public class ValidationTest {
     void check_last_splitter_duplication() {
         final String[] input = new String[] {"1", "+"};
         assertThatThrownBy(() -> {
-            Validation.checkSplitterPosition(input);
+            Validation.validate(input);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -45,7 +45,7 @@ public class ValidationTest {
     void check_valid_splitter() {
         final String[] input = new String[]{"1", "+", "2", "?", "5"};
         assertThatThrownBy(() -> {
-            Validation.checkValidSplitter(input);
+            Validation.validate(input);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 }
